@@ -1,10 +1,10 @@
-// 녹화 상태를 화면에 표시하기 위한 변수
 let isRecording = false;
 let recordStartTime = 0;
 let durationSeconds = 3; // 녹화할 시간 (3초)
 
 function setup() {
-  createCanvas(600, 400);
+   let myCanvas = createCanvas(600, 400);
+  myCanvas.parent("canvas-assignment4"); 
   colorMode(RGB, 255); 
 }
 
@@ -106,7 +106,7 @@ function draw() {
   triangle(-15, 0, 15, 0, 0, -25);
   pop();
 
-  // 5. 녹화 중임을 알리는 화면 UI 안내 (선택 사항)
+  // 5. 녹화 중임을 알리는 화면 UI 안내
   if (isRecording) {
     if (millis() - recordStartTime < durationSeconds * 1000) {
       push();
