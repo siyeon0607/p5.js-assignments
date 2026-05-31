@@ -1,5 +1,7 @@
 function setup() {
-  createCanvas(600, 400);
+  let myCanvas = createCanvas(600, 400); // 캔버스 변수 지정
+  myCanvas.parent("canvas-assignment1"); // 캔버스를 특정 ID 박스에 고정
+}
 }
 function draw() {
   background(50);
