@@ -4,8 +4,10 @@ let recordStartTime = 0;
 let durationSeconds = 3; // 녹화할 시간 (3초)
 
 function setup() {
-  createCanvas(600, 400);
-  colorMode(RGB, 255); 
+  let myCanvas = createCanvas(600, 400); // 캔버스 생성
+  myCanvas.parent("canvas-assignment4"); // 👈 4번 과제 박스에 연결
+  
+  // 기존에 작성하신 나머지 setup 코드들이 있다면 아래에 그대로 유지하세요.
 }
 
 function draw() {
