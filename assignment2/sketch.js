@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(600, 400);
+  let myCanvas = createCanvas(600, 400); // 캔버스를 변수 c에 할당
+  myCanvas.parent("canvas-assignment2"); // 캔버스를 2번 과제 박스에 연결
 }
 
 function draw() {
