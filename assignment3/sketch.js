@@ -1,7 +1,9 @@
 function setup() {
-  createCanvas(600, 400);
+  let myCanvas = createCanvas(600, 400); // 캔버스 생성
+  myCanvas.parent("canvas-assignment3"); // 👈 3번 과제 박스에 연결
+  
   // 실행 후 7초 동안의 동작을 'myArtwork.gif'로 저장합니다.
-  saveGif('myArtwork', 7);
+  saveGif('myArtwork', 7); 
 }
 
 function draw() {
