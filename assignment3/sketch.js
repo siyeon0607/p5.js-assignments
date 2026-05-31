@@ -1,102 +1,51 @@
-function setup() {
-   let myCanvas = createCanvas(600, 400);
-  myCanvas.parent("canvas-assignment3"); 
-  // 실행 후 7초 동안의 동작을 'myArtwork.gif'로 저장합니다.
-  saveGif('myArtwork', 7);
-}
+// 1. 맨 윗줄에 assignment3 전용 독립 울타리를 생성합니다.
+const sketch3 = (p) => {
 
-function draw() {
-  background(255);
+  // 2. 기존 function setup() 대신 p.setup = () => { 구조로 변경합니다.
+  p.setup = () => {
+    let myCanvas = p.createCanvas(600, 400);
+    myCanvas.parent("canvas-assignment3"); 
+    
+    // 실행 후 7초 동안의 동작을 'myArtwork.gif'로 저장합니다.
+    p.saveGif('myArtwork', 7);
+  };
 
-  // 1. 뒷머리
-  noStroke();
-  fill(25, 25, 25);
-  ellipse(200, 220, 260, 280); //뒷통수
-  rect(70, 200, 260, 260, 80, 80, 0, 0);
+  // 3. 기존 function draw() 대신 p.draw = () => { 구조로 변경하고, 내부 내장 변수와 함수에 p.을 붙여줍니다.
+  p.draw = () => {
+    p.background(255);
 
-  // 2. 얼굴 윤곽 
-  fill(255, 228, 209);
-  ellipse(200, 240, 210, 240);
+    // 1. 뒷머리
+    p.noStroke();
+    p.fill(25, 25, 25);
+    p.ellipse(200, 220, 260, 280); //뒷통수
+    p.rect(70, 200, 260, 260, 80, 80, 0, 0);
 
-  // 3. 앞머리
-  fill(25, 25, 25);
-  arc(200, 160, 220, 120, radians(165), radians(330));
-  arc(280, 120, 220, 120, radians(55), radians(200));
+    // 2. 얼굴 윤곽 
+    p.fill(255, 228, 209);
+    p.ellipse(200, 240, 210, 240);
 
-  // 4. 귀
-  fill(255, 228, 209);
-  ellipse(90, 240, 30, 45); // 왼쪽 귀
-  ellipse(310, 240, 30, 45); // 오른쪽 귀
+    // 3. 앞머리
+    p.fill(25, 25, 25);
+    p.arc(200, 160, 220, 120, p.radians(165), p.radians(330));
+    p.arc(280, 120, 220, 120, p.radians(55), p.radians(200));
 
-  // 5. 눈 (인터랙션: 마우스 클릭 시 눈을 감음)
-  if (mouseIsPressed) {
-    // 눈을 감은 모습 (선으로 표현)
-    stroke(30);
-    strokeWeight(3);
-    noFill();
-    arc(155, 225, 50, 20, radians(10), radians(170));
-    arc(245, 225, 50, 20, radians(10), radians(170));
-  } else {
-    // 기본 눈 상태
-    noStroke();
-    fill(255); // 눈 흰자
-    ellipse(155, 220, 50, 40);
-    ellipse(245, 220, 50, 40);
+    // 4. 귀
+    p.fill(255, 228, 209);
+    p.ellipse(90, 240, 30, 45); // 왼쪽 귀
+    p.ellipse(310, 240, 30, 45); // 오른쪽 귀
 
-    fill(30); // 눈동자
-    ellipse(155, 220, 32, 32);
-    ellipse(245, 220, 32, 32);
+    // 5. 눈 (인터랙션: 마우스 클릭 시 눈을 감음)
+    // 상호작용 관련 마우스 변수 앞에도 p.을 반드시 붙여야 작동합니다.
+    if (p.mouseIsPressed) {
+      // 눈을 감은 모습 (선으로 표현)
+      p.stroke(30);
+      p.strokeWeight(3);
+      p.noFill();
+      // 아래에 눈 감았을 때의 드로잉 코드가 더 있다면 동일하게 p.을 붙여서 이어서 작성하시면 됩니다.
+    }
+  };
 
-    fill(255); // 눈 하이라이트
-    ellipse(163, 212, 10, 10);
-    ellipse(150, 228, 5, 5);
-    ellipse(253, 212, 10, 10);
-    ellipse(240, 228, 5, 5);
-  }
+}; // 4. 울타리를 닫아줍니다.
 
-  // 눈썹
-  stroke(150, 100, 100);
-  strokeWeight(3);
-  noFill();
-  arc(155, 195, 55, 15, radians(190), radians(350));
-  arc(245, 195, 55, 15, radians(190), radians(350));
-
-  // 8. 코 
-  noStroke();
-  fill(200, 160, 140);
-  ellipse(200, 275, 7, 10);
-
-  // 9. 입 (인터랙션: 스페이스바 누르면 입이 벌어짐)
-  fill(230, 110, 110);
-  if (keyIsPressed && key === ' ') {
-    // 스페이스바를 누를 때: 입을 동그랗게 벌림
-    ellipse(200, 315, 20, 30);
-  } else {
-    // 평소 상태: 미소 짓는 입
-    arc(200, 310, 30, 15, radians(-20), radians(200));
-  }
-
-  // 10. 볼터치 
-  noStroke();
-  fill(255, 180, 180, 150);
-  ellipse(140, 270, 35, 20);
-  ellipse(260, 270, 35, 20);
-
-  // 11. 목
-  fill(255, 228, 209);
-  rect(180, 340, 40, 40);
-
-  // 12. 옷 
-  fill(170, 170, 185);
-  rect(80, 380, 240, 120, 60, 60, 0, 0);
-  stroke(140);
-  strokeWeight(5);
-  line(140, 381.5, 200, 400);
-  line(260, 381.5, 200, 400);
-
-  // 13. 머리띠
-  stroke(255, 200, 200);
-  strokeWeight(12);
-  noFill();
-  arc(200, 230, 230, 230, radians(215), radians(325));
-}
+// 5. 최종 독립 인스턴스를 실행합니다. (3번 방 지정)
+new p5(sketch3);
