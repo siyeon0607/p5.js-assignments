@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p5.js 과제 포트폴리오</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <title>p5.js 인터랙티브 아트 과제 제출</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
+    <h1># p5.js 인터랙티브 아트 과제 제출</h1>
+    <p>마우스를 움직이거나 클릭하여 각 작품과 상호작용해 보세요.</p>
 
-    <header>
-        <h1>p5.js 인터랙티브 아트 과제 제출</h1>
-        <p>마우스를 움직이거나 클릭하여 각 작품과 상호작용해 보세요.</p>
-    </header>
-
-    <main class="grid-container">
-        
-        <section class="card">
+    <div class="grid-container">
+        <div class="card">
             <h2>과제 1</h2>
-            <div id="canvas-assignment1"></div>
-        </section>
-
-        <section class="card">
-            <h2>과제 4</h2>
-            <div id="canvas-assignment4"></div>
-        </section>
-
-        <section class="card">
+            <div id="canvas-assignment1" class="canvas-container"></div>
+        </div>
+        <div class="card">
             <h2>과제 2</h2>
-            <div id="canvas-assignment2"></div>
-        </section>
-
-        <section class="card">
+            <div id="canvas-assignment2" class="canvas-container"></div>
+        </div>
+        <div class="card">
             <h2>과제 3</h2>
-            <div id="canvas-assignment3"></div>
-        </section>
-
-    </main>
+            <div id="canvas-assignment3" class="canvas-container"></div>
+        </div>
+        <div class="card">
+            <h2>과제 4</h2>
+            <div id="canvas-assignment4" class="canvas-container"></div>
+        </div>
+    </div>
 
     <script src="assignment1/sketch.js"></script>
     <script src="assignment2/sketch.js"></script>
     <script src="assignment3/sketch.js"></script>
     <script src="assignment4/sketch.js"></script>
-
 </body>
 </html>
